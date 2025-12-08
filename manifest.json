@@ -1,0 +1,19 @@
+{
+    "manifest_version": 2,
+    "name": "AutoReaderView",
+    "version": "1.0",
+
+    "description": "Uses reader view automatically when possible.",
+
+    "icons": {
+        "48": "icons/icon-48.png",
+        "96": "icons/icon-96.png"
+    },
+
+    "content_scripts": [
+        {
+            "matches": ["*://*.mozilla.org/*"],
+            "js": ["js/content.js"]
+        }
+    ]
+}
