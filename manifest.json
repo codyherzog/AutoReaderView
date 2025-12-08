@@ -4,16 +4,25 @@
     "version": "1.0",
 
     "description": "Uses reader view automatically when possible.",
+    "homepage_url": "https://github.com/codyherzog/AutoReaderView",
+
+    "permissions": ["activeTab"],
 
     "icons": {
         "48": "icons/icon-48.png",
         "96": "icons/icon-96.png"
     },
 
+    "browser_action": {
+        "default_icon": "icons/icon-96.png",
+        "default_title": "AutoReaderView",
+        "default_popup": "popup/popup.html"
+    },
+
     "content_scripts": [
         {
             "matches": ["*://*.mozilla.org/*"],
-            "js": ["js/content.js"]
+            "js": ["content_scripts/content.js"]
         }
     ]
 }
