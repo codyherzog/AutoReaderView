@@ -7,7 +7,54 @@
 
     <body>
         <div id="popup-content">
-            <button id="toggle">Toggle Reader View</button>
+            <div>
+                <input
+                    type="radio"
+                    id="useWhitelist"
+                    name="listMode"
+                    value="white"
+                />
+                <label for="useWhitelist"
+                    >Try auto reader view on these URL patterns only:</label
+                >
+            </div>
+
+            <div>
+                <textarea
+                    id="whitelist"
+                    name="whitelist"
+                    rows="5"
+                    cols="55"
+                    wrap="off"
+                ></textarea>
+            </div>
+
+            <div>
+                <input
+                    type="radio"
+                    id="useBlacklist"
+                    name="listMode"
+                    value="black"
+                />
+                <label for="listMode"
+                    >Always try auto reader view except for these URL
+                    patterns:</label
+                >
+            </div>
+
+            <div>
+                <textarea
+                    id="blacklist"
+                    name="blacklist"
+                    rows="5"
+                    cols="55"
+                    wrap="off"
+                ></textarea>
+            </div>
+
+            <div>
+                <button id="apply">Apply</button>
+            </div>
         </div>
         <script src="popup.js"></script>
     </body>
