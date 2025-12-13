@@ -6,7 +6,7 @@
     "description": "Uses reader view automatically when possible.",
     "homepage_url": "https://github.com/codyherzog/AutoReaderView",
 
-    "permissions": ["activeTab", "<all_urls>"],
+    "permissions": ["activeTab", "<all_urls>", "storage"],
 
     "icons": {
         "48": "icons/icon-48.png",

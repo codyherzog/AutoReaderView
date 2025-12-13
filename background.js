@@ -1,6 +1,25 @@
 // Should I remember the URL when they toggle in and out of reader mode? Put into persistent storage?
 alreadyPutTabInReaderMode = {};
 
+let whitelist = "";
+let blacklist = "";
+
+function getWhitelist() {
+    return whitelist;
+}
+
+function getBlacklist() {
+    return blacklist;
+}
+
+function setWhitelist(newList) {
+    whitelist = newList;
+}
+
+function setBlacklist(newList) {
+    blacklist = newList;
+}
+
 browser.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
     // onUpdated never gets called with isInReaderMode == true apparently
     if (changeInfo.status === "complete") {
@@ -14,6 +33,8 @@ browser.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
             const key = tabId + " - " + tab.url;
             const alreadySwitched = alreadyPutTabInReaderMode[key] || false;
             console.log(`Already switched[${key}] = ${alreadySwitched}`);
+            console.log(`whitelist = "${whitelist}"`);
+            console.log(`blacklist = "${blacklist}"`);
             if (!tab.isInReaderMode && !alreadySwitched) {
                 // TODO: Some pages have a problem where they seem to switch, but then switch back.
                 // It might be related to popups, for example cookie settings question popups.
